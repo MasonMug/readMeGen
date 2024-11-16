@@ -3,6 +3,107 @@ let licenseBadge = "";
 let licenseLink = "";
 const today = new Date();
 
+//Generates the README on the inputs in questionInput()
+function generateMarkdown(data) {
+  console.log(data.license);
+  if(data.license == 'none') {
+  return `# ${data.title}
+
+  ## Description
+
+  ${data.description}
+
+  ## Table of Contents
+
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Tests](#tests)
+  - [Contributing](#contributing)
+  - [Questions](#questions)
+  - [License](#license)
+
+  ## Installation
+
+  To install the project, run the following command:
+
+  \`\`\`
+  ${data.installation}
+  \`\`\`
+    
+  ## Usage
+
+  ![alt text](${data.usage})
+
+  ## Tests
+
+  ${data.tests}
+
+  ## Contributing
+
+  ${data.contribution}
+
+  ## Questions
+
+  If you have any questions, contact this GitHub Profile: [${data.userName}](https://github.com/${data.userName}).
+    
+  Or you can contact this email for further questions: [${data.email}](${data.email})
+  
+  ## License
+
+  This project doesn't have a current license
+  
+  `;
+  } else {
+  return `# ${data.title}
+  
+  ## Description
+  
+  ${data.description}
+  
+  ## Table of Contents
+  
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Tests](#tests)
+  - [Contributing](#contributing)
+  - [Questions](#questions)
+  - [License](#license)
+  
+  ## Installation
+  
+  To install the project, run the following command:
+  
+  \`\`\`
+  ${data.installation}
+  \`\`\`
+      
+  ## Usage
+  
+  ![alt text](${data.usage})
+  
+  ## Tests
+  
+  ${data.tests}
+  
+  ## Contributing
+  
+  ${data.contribution}
+  
+  ## Questions
+  
+  If you have any questions, contact this GitHub Profile: [${data.userName}](https://github.com/${data.userName}).
+      
+  Or you can contact this email for further questions: [${data.email}](${data.email})
+      
+  ## License
+
+  This project is licensed under the ${data.license} license.
+
+  ${renderLicenseSection(data.license, data.userName)}
+  `;
+  }
+}
+
 //Creates a License Badge based on the selected license option in questionInput()
 function renderLicenseBadge(license) {
   if (license == "None"){
@@ -1023,106 +1124,5 @@ function renderLicenseSection(license, userName) {
   }
 }
 
-//Generates the README on the inputs in questionInput()
-function generateMarkdown(data) {
-  console.log(data.license);
-  if(data.license == 'none') {
-    return `# ${data.title}
-
-  ## Description
-
-  ${data.description}
-
-  ## Table of Contents
-
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [License](#license)
-  - [Questions](#questions)
-
-  ## Installation
-
-  To install the project, run the following command:
-
-  \`\`\`
-  ${data.installation}
-  \`\`\`
-    
-  ## Usage
-
-  ${data.usage}
-
-  ## Contributing
-
-  ${data.contribution}
-
-  ## Tests
-
-  ${data.tests}
-
-  ## License
-
-  This project doesn't have a license
-
-  ## Questions
-
-  If you have any questions, contact this GitHub Profile: [${data.userName}](https://github.com/${data.userName}).
-    
-  Or you can contact this email for further questions: [${data.email}](${data.email})
-    
-  `;
-  } else {
-    return `# ${data.title}
-
-  ## Description
-
-  ${data.description}
-
-  ## Table of Contents
-
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [License](#license)
-  - [Questions](#questions)
-
-  ## Installation
-
-  To install the project, run the following command:
-
-  \`\`\`
-  ${data.installation}
-  \`\`\`
-    
-  ## Usage
-
-  ${data.usage}
-
-  ## Contributing
-
-  ${data.contribution}
-
-  ## Tests
-
-  ${data.tests}
-
-  ## License
-
-  This project is licensed under the ${data.license} license.
-
-  ${renderLicenseSection(data.license, data.userName)}
-
-  ## Questions
-
-  If you have any questions, contact this GitHub Profile: [${data.userName}](https://github.com/${data.userName}).
-    
-  Or you can contact this email for further questions: [${data.email}](${data.email})
-    
-  `;
-  }
-}
 //Allows the returned data to be sent to index.js for writeToFile()
 export default generateMarkdown;  
