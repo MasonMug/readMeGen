@@ -97,8 +97,6 @@ function generateMarkdown(data) {
       
   ## License
 
-  This project is licensed under the ${data.license} license.
-
   ${renderLicenseSection(data.license, data.userName)}
   `;
   }
