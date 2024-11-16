@@ -23,7 +23,7 @@
       
   ## Usage
   
-  ![alt text](assets/images/screenshot.png)
+  ![alt text](assets/screenshot.png)
   
   ## Tests
   
